@@ -1,6 +1,10 @@
-(defun factorial (n)
-	(if (= n 0)
+(defun factorial (n) (if (= n 0) 1 (* n (factorial (- n 1)))) )  
+
+(write (factorial 10))
+
+(defun factorial
+	(if 
 		1
-		(* n (factorial (- n 1)))))
+		(* n (factorial ))))
 
 (write (factorial 10))
