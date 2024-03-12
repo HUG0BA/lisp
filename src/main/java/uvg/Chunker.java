@@ -22,8 +22,8 @@ public class Chunker {
 
             block = block + character;
 
-            if(stack.isEmpty()){
-                arrTest.add(block);
+            if(stack.isEmpty() && !block.equals("") && !block.equals(" ")){
+                arrTest.add(block.trim());
                 block = "";
             }
         }
