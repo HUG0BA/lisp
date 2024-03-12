@@ -5,79 +5,44 @@ import java.util.Stack;
 
 public class ArithmeticOperations {
 
-    public int evaluatePrefix(List<String> st) {
-        Stack<Integer> stack = new Stack<>();
-        String lastOperator = "";  // Initialize variable to store the last encountered operator
+    public float sum(float[] numArr) {
+        float result = 0;
+        for(float num : numArr){
+            result += num;
+        }
+        return result;
+    }
 
-        for (int i = st.size() - 1; i >= 0; i--) {
-            String e = st.get(i);
-            if (isNumeric(e)) {
-                stack.push(Integer.parseInt(e));
-            } else {
-                int n1 = stack.pop();
-                int n2 = stack.pop();
+    public float substraction(float[] numArr){
+        float result = numArr[0] - numArr[1];
+        if(numArr.length > 2){
+            for(int i = 2; i < numArr.length; i++){
+                result -= numArr[i];
+            }
+        }
+        return result;
+    }
 
-                // Store the last encountered operator
-                if (i == 0) {
-                    lastOperator = e;
-                }
+    public float multiplication(float[] numArr){
+        float result = 1;
+        for(float i : numArr){
+            result *= i;
+        }
+        return result;
+    }
 
-                // Perform the operation based on the encountered operator
-                switch (e) {
-                    case "+":
-                        stack.push(n1 + n2);
-                        break;
-                    case "-":
-                        stack.push(n1 - n2);
-                        break;
-                    case "*":
-                        stack.push(n1 * n2);
-                        break;
-                    case "/":
-                        stack.push(n1 / n2);
-                        break;
-                    default:
-                        break;
+    public float division(float[] numArr){
+        float result = numArr[0] / numArr[1];
+        if(numArr.length > 2){
+            if(numArr.length > 2){
+                for(int i = 2; i < numArr.length; i++){
+                    result /= numArr[i];
                 }
             }
         }
 
-        // Perform the final operation based on the last encountered operator
-        while (!lastOperator.isEmpty() && stack.size() > 1) {
-            int n1 = stack.pop();
-            int n2 = stack.pop();
-            switch (lastOperator) {
-                case "+":
-                    stack.push(n1 + n2);
-                    break;
-                case "-":
-                    stack.push(n1 - n2);
-                    break;
-                case "*":
-                    stack.push(n1 * n2);
-                    break;
-                case "/":
-                    stack.push(n1 / n2);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Invalid operator: " + lastOperator);
-            }
-            lastOperator = "";  // Reset the last operator
-        }
-
-        if (stack.isEmpty()) {
-            throw new IllegalArgumentException("Empty stack after evaluation");
-        }
-
-        return stack.pop();  // Return the final result after all operations
+        return result;
     }
 
-    private boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+
 }

@@ -27,7 +27,7 @@ public class App
             System.out.println(str);
         }
         
-        String str = "(+ 1 1 (* 2 9 ))";
+        String str = "(+ 1 23 234(* 3232 32 3 (- 333 34)) 23)";
         Tokenizer tokenizer = new Tokenizer();
         List<String> tokens = tokenizer.tokenizer(str);
         System.out.println(tokens);
