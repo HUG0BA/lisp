@@ -22,7 +22,7 @@ public class App
 
         Chunker chunker = new Chunker();
 
-        ArrayList<String> test = chunker.getChunks("(defun factorial (n)(if (= n 0) 1 (* n (factorial (- n 1))))) (write (factorial 10))");
+        ArrayList<String> test = chunker.getChunks("(defun factorial (n)(if (= n 0) 1 (* n (factorial (- n 1))))) (write (factorial 10)) (+ 1 23 234(* 3232 32 3 (- 333 34)) 23)");
         for(String str : test){
             System.out.println(str);
         }
@@ -33,8 +33,8 @@ public class App
         System.out.println(tokens);
   
         ArithmeticOperations operation = new ArithmeticOperations();
-        int result = operation.evaluatePrefix(tokens);
-        System.out.println(result);
+        //int result = operation.evaluatePrefix(tokens);
+        //System.out.println(result);
 
 
 
