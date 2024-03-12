@@ -3,6 +3,7 @@ package uvg;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -25,6 +26,16 @@ public class App
         for(String str : test){
             System.out.println(str);
         }
+        
+        String str = "(+ 1 1 (* 2 9 ))";
+        Tokenizer tokenizer = new Tokenizer();
+        List<String> tokens = tokenizer.tokenizer(str);
+        System.out.println(tokens);
+  
+        ArithmeticOperations operation = new ArithmeticOperations();
+        int result = operation.evaluatePrefix(tokens);
+        System.out.println(result);
+
 
 
     }
