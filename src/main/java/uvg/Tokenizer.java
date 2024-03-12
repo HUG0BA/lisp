@@ -32,22 +32,23 @@ public class Tokenizer {
           Pattern pattern = Pattern.compile(regex);
           Matcher matcher = pattern.matcher(str);
           int count = 0;
-          String Symbol = "";
+          String symbol = "";
 
           while (matcher.find()) {
                count++;
           }
 
-          float[] tokenslist = new float[count];
+          float[] tokenslist = new float[count -1];
           int index = 0;
 
-          for (int i = 0; i >= str.length(); i++) {
+          for (int i = 0; i < str.length(); i++) {
                char e = str.charAt(i);
                if (e == '*' || e == '+' || e == '-' || e == '/') {
-                    Symbol = String.valueOf(e);
-               } else {
+                    symbol = String.valueOf(e);
+
+               } else if (!Character.isWhitespace(e)) {
                     StringBuilder numstr = new StringBuilder();
-                    while (i < str.length()) {
+                    while (i < str.length() && Character.isDigit(e)) {
                          numstr.append(e);
                          i++;
                     }
@@ -55,6 +56,6 @@ public class Tokenizer {
                     tokenslist[index++] = Float.parseFloat(numstr.toString());
                }
           }
-          return new SimpleEntry<String,float[]>(Symbol, tokenslist) ;
+          return new SimpleEntry<String, float[]>(symbol, tokenslist);
      }
 }
