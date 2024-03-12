@@ -27,16 +27,17 @@ public class App
             System.out.println(str);
         }
         
-        String str = "(+ 1 23 234(* 3232 32 3 (- 333 34)) 23)";
+        /*String str = "(+ 1 23 234(* 3232 32 3 (- 333 34)) 23)";
         Tokenizer tokenizer = new Tokenizer();
         List<String> tokens = tokenizer.tokenizer(str);
         System.out.println(tokens);
   
-        ArithmeticOperations operation = new ArithmeticOperations();
+        ArithmeticOperations operation = new ArithmeticOperations();*/
         //int result = operation.evaluatePrefix(tokens);
         //System.out.println(result);
 
 
-
+        System.out.println(9 % 4);
+        System.out.println(-9 % 4); 
     }
 }
