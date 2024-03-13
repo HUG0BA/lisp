@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class ArithmeticOperations {
 
-    public float sum(float[] numArr) {
+    public static float sum(float[] numArr) {
         float result = 0;
         if(numArr.length == 0){
             return result;
@@ -16,7 +16,7 @@ public class ArithmeticOperations {
         return result;
     }
 
-    public float substraction(float[] numArr){
+    public static float substraction(float[] numArr){
         if(numArr.length == 0){
             return 0;
         }
@@ -29,7 +29,7 @@ public class ArithmeticOperations {
         return result;
     }
 
-    public float multiplication(float[] numArr){
+    public static float multiplication(float[] numArr){
         float result = 1;
         if(numArr.length == 0){
             return result;
@@ -40,7 +40,7 @@ public class ArithmeticOperations {
         return result;
     }
 
-    public float division(float[] numArr) throws ArithmeticException{
+    public static float division(float[] numArr) throws ArithmeticException{
         if(numArr.length == 0){
             return 1;
         }else if(numArr.length == 1){
@@ -75,7 +75,7 @@ public class ArithmeticOperations {
         return result;
     }
 
-    public float modolusSign(float dividend, float divisor) throws ArithmeticException{
+    public static float modolusSign(float dividend, float divisor) throws ArithmeticException{
         if(divisor != 0.0f){
             return dividend % divisor;
         }else{

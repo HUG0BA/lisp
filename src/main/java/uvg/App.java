@@ -39,5 +39,10 @@ public class App
 
         System.out.println(9 % 4);
         System.out.println(-9 % 4); 
+
+        Tokenizer.quoteFunctionTokenizer("(quote x)");
+        Tokenizer.quoteSignTokenizer("'x");
+
+        Tokenizer.setqTokenizer("(quote x)");
     }
 }

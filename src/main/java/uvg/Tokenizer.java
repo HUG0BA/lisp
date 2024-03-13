@@ -1,7 +1,9 @@
 package uvg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.AbstractMap.*;
 import java.util.regex.*;
@@ -57,4 +59,46 @@ public class Tokenizer {
           }
           return new SimpleEntry<String,float[]>(Symbol, tokenslist) ;
      }
+
+     public static String quoteFunctionTokenizer(String str){
+          String regex = "\\(quote (.+)\\)";
+          Pattern pattern = Pattern.compile(regex); 
+          Matcher matcher = pattern.matcher(str);
+          String token = "";
+
+          while(matcher.find()){
+               token = matcher.group(1);
+          }
+
+          return token;
+     }
+
+     public static String quoteSignTokenizer(String str){
+          String regex = "\'(.+)";
+          Pattern pattern = Pattern.compile(regex); 
+          Matcher matcher = pattern.matcher(str);
+          String token = "";
+
+          while(matcher.find()){
+               token = matcher.group(1);
+          }
+
+          return token;
+     }
+
+     public static Map<String, String> setqTokenizer(String str){
+          String regex = "\\(quote (.+)\\)";
+          Pattern pattern = Pattern.compile(regex); 
+          Matcher matcher = pattern.matcher(str);
+
+          Map<String, String> mapToken = new HashMap<String,String>();
+
+          while(matcher.find());{
+               mapToken.put(matcher.group(1), matcher.group(2));
+          }
+
+          return mapToken;
+     }
+
+
 }
