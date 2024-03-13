@@ -12,12 +12,12 @@ public class TokenizerTest {
      public void tokenizersTest() {
           String input = "+ 2 3 7 7 7";
           SimpleEntry<String, float[]> result = Tokenizer.tokenizers(input);
-          float[] tokens = result.getValue();
           String symbol = result.getKey();
+          float[] tokens = result.getValue();
 
           //assertEquals("+", symbol);
 
-          float[] expectedTokens = { 2f, 3f, 7f, 7f, 7f };
+          float[] expectedTokens = { 2, 3, 7, 7, 7 };
 
           assertEquals(expectedTokens, tokens);
      }
