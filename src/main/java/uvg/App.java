@@ -43,6 +43,6 @@ public class App
         Tokenizer.quoteFunctionTokenizer("(quote x)");
         Tokenizer.quoteSignTokenizer("'x");
 
-        Tokenizer.setqTokenizer("(quote x)");
+        Tokenizer.setqTokenizer("(setq x 10 y 10)");
     }
 }

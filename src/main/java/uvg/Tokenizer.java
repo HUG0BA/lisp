@@ -81,22 +81,31 @@ public class Tokenizer {
 
           while(matcher.find()){
                token = matcher.group(1);
+               
           }
 
           return token;
      }
 
      public static Map<String, String> setqTokenizer(String str){
-          String regex = "\\(quote (.+)\\)";
+          String regex = "\\(setq *([^ ]*) ([^ ]*).*\\)";
           Pattern pattern = Pattern.compile(regex); 
           Matcher matcher = pattern.matcher(str);
-
           Map<String, String> mapToken = new HashMap<String,String>();
 
-          while(matcher.find());{
+          while(matcher.find()){
                mapToken.put(matcher.group(1), matcher.group(2));
+               str = str.replaceFirst(matcher.group(1), " ");
+               str = str.replaceFirst(matcher.group(2), " ");
+               //The code below is not the most effective solution for the problem, but time was not from our side
+               //The problema is that once the regex matches two empty strings in group 1 and 2, which enters an endless loop
+               //This happens when the string reaches the following state (setq   )
+               if(mapToken.containsKey("")){
+                    mapToken.remove("");
+                    return mapToken;
+               }
+               matcher.reset(str.trim());
           }
-
           return mapToken;
      }
 

@@ -19,7 +19,7 @@ public class Quote {
         String quote = "";
         String closing = "";
         for(int i = 0; i < count; i++){
-            quote = quote + "(QUOTE ";
+            quote = quote + "(quote ";
             closing = closing + ")";
         }
 
