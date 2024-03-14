@@ -92,27 +92,4 @@ public class CommandEvaluator {
         return command;
     }
 
-    public static boolean evaluateHigherExpression(DataTriplet dataPair){
-        String command = dataPair.getCommand();
-        command = checkForVariables(command);
-        command = checkForQuotes(command);
-        float[] arguments = Tokenizer.numberTokenizer(command);
-        return VerifyExpresion.higherThan(arguments);
-    }
-
-    public static boolean evaluateLowerExpression(DataTriplet dataPair){
-        String command = dataPair.getCommand();
-        command = checkForVariables(command);
-        command = checkForQuotes(command);
-        float[] arguments = Tokenizer.numberTokenizer(command);
-        return VerifyExpresion.lowerThan(arguments);
-    }
-    
-    public static boolean evaluateEqualsToExpression(DataTriplet dataPair){
-        String command = dataPair.getCommand();
-        command = checkForVariables(command);
-        command = checkForQuotes(command);
-        float[] arguments = Tokenizer.numberTokenizer(command);
-        return VerifyExpresion.equalsTo(arguments);
-   }
 }
