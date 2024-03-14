@@ -59,6 +59,16 @@ public class App
     */
         System.out.println(Tokenizer.setqTokenizer("(setq x 10 y 10)"));
 
-        System.out.println(Tokenizer.veryfyExpressionTokenizer("(> 100 200)"));
+
+        ArrayList<String> test2 = Chunker.getChunks("(< 100 400)");
+        
+        ArrayList<DataTriplet> currenArr = Extractor.extract(test2);
+        System.err.println(currenArr);
+        String currentResult = ExtractorEvaluator.evaluate(currenArr);
+        System.err.println(currentResult);
+        System.out.println(currentResult);
+        //System.out.println(str);
+        
+        System.out.println(test2);
     }
 }

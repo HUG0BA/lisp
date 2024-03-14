@@ -161,7 +161,7 @@ public class Tokenizer {
      }
 
      public static String veryfyExpressionTokenizer(String str) {
-          String regex = "<\\s*(\\d+)\\s*(\\d+)";
+          String regex = "(\\d+\\.?\\d*) (\\d+\\.?\\d*)";
           Pattern pattern = Pattern.compile(regex);
           Matcher matcher = pattern.matcher(str);
           StringBuilder numbers = new StringBuilder();
