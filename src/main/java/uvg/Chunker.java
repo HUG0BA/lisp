@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Chunker {
     
-    public ArrayList<String> getChunks(String rawLispCode){
+    public static ArrayList<String> getChunks(String rawLispCode){
         Stack<Character> stack = new Stack<Character>();
         char[] charArr = rawLispCode.toCharArray();
         String block = "";

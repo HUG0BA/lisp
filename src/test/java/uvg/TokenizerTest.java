@@ -11,7 +11,7 @@ public class TokenizerTest {
      @Test
      public void tokenizersTest() {
           String input = "+ 2 3 7 7 7";
-          SimpleEntry<String, float[]> result = Tokenizer.tokenizers(input);
+          SimpleEntry<String, float[]> result = Tokenizer.numberTokenizer(input);
           String symbol = result.getKey();
           float[] tokens = result.getValue();
 
