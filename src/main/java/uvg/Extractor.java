@@ -11,7 +11,7 @@ import javax.xml.crypto.Data;
 public class Extractor {
 
     public static ArrayList<DataTriplet> extract(String str){
-        String regex = "\\((\\+|-|\\*|\\/|%|quote|\\'|atom|list|equal|<|>|cond|defun) ?([^\\(\\)]*)\\)";
+        String regex = "\\((\\+|-|\\*|\\/|%|setq|quote|\\'|atom|list|equal|<|>|cond|defun) ?([^\\(\\)]*)\\)";
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(str);
         ArrayList<DataTriplet> order = new ArrayList<DataTriplet>();
@@ -20,7 +20,8 @@ public class Extractor {
         while(matcher.find()){
             EEvaluationType keyWord = ReservedKeyWords.getInstance().getKeyword(matcher.group(1));
             EExtractionType extractionType = ExtractionKeyWords.getInstance().getEvaluationType(matcher.group(1));
-            String innestExtract = matcher.group(0);
+            str = str.replace(matcher.group(1), "");
+            String innestExtract = matcher.group(0).replace(matcher.group(1), "");
             DataTriplet dataPair = new DataTriplet(extractionType, keyWord, innestExtract);
             order.add(dataPair);
             if(str.contains(innestExtract)){
