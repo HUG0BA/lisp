@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import javax.xml.stream.FactoryConfigurationError;
 
 /**
  * Hello world!
@@ -13,7 +16,14 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException, IOException
     {
-        
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while(!input.equals("salir")){
+            System.out.println("> ");
+            input = scanner.nextLine();
+            
+        }
+
         /*FileManager fileManger = new FileManager();
         ArrayList<String> test = fileManger.readTXTFile("example.txt");
 
