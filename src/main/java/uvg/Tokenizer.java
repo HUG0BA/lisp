@@ -29,36 +29,32 @@ public class Tokenizer {
       * @param str
       * @return
       */
-     public static SimpleEntry<String, float[]> tokenizers(String str) {
-          String regex = "\\\\(|\\\\)|[a-zA-Z0-9+*/<>=!_?-]+";
+     public static float[] numberTokenizer(String str) {
+          String regex = "(\\d*\\.?\\d+)";
           Pattern pattern = Pattern.compile(regex);
           Matcher matcher = pattern.matcher(str);
           int count = 0;
-          String symbol = "";
 
           while (matcher.find()) {
                count++;
           }
 
-          float[] tokenslist = new float[count -1];
-          int index = 0;
+          float[] tokenslist = new float[count];
+          matcher.reset();
+          count = 0;
 
-          for (int i = 0; i < str.length(); i++) {
-               char e = str.charAt(i);
-               if (e == '*' || e == '+' || e == '-' || e == '/') {
-                    symbol = String.valueOf(e);
-
-               } else if (!Character.isWhitespace(e)) {
-                    StringBuilder numstr = new StringBuilder();
-                    while (i < str.length() && Character.isDigit(e)) {
-                         numstr.append(e);
-                         i++;
-                    }
-                    i--;
-                    tokenslist[index++] = Float.parseFloat(numstr.toString());
-               }
+          while(matcher.find()){
+               float current = Float.parseFloat(matcher.group(1));
+               tokenslist[count] = current;
+               count++;
           }
-          return new SimpleEntry<String, float[]>(symbol, tokenslist);
+
+          
+          return tokenslist;
+     }
+
+     public static boolean[] booleanTokenizer(){
+          return null;
      }
 
      public static String quoteFunctionTokenizer(String str){
@@ -88,27 +84,48 @@ public class Tokenizer {
           return token;
      }
 
-     public static Map<String, String> setqTokenizer(String str){
+     public static ArrayList<String> setqTokenizer(String str){
           String regex = "\\(setq *([^ ]*) ([^ ]*).*\\)";
           Pattern pattern = Pattern.compile(regex); 
           Matcher matcher = pattern.matcher(str);
-          Map<String, String> mapToken = new HashMap<String,String>();
+          ArrayList<String> arrToken = new ArrayList<String>();
 
           while(matcher.find()){
-               mapToken.put(matcher.group(1), matcher.group(2));
+               arrToken.add(matcher.group(1));
+               arrToken.add( matcher.group(2));
                str = str.replaceFirst(matcher.group(1), " ");
                str = str.replaceFirst(matcher.group(2), " ");
                //The code below is not the most effective solution for the problem, but time was not from our side
                //The problema is that once the regex matches two empty strings in group 1 and 2, which enters an endless loop
                //This happens when the string reaches the following state (setq   )
-               if(mapToken.containsKey("")){
-                    mapToken.remove("");
-                    return mapToken;
+               if(arrToken.contains("")){
+                    arrToken.remove("");
+                    return arrToken;
                }
                matcher.reset(str.trim());
           }
-          return mapToken;
+          return arrToken;
      }
 
+     /* 0*/
+     public static Map<String, String> condTokenizer(String str){
+          String regex = "\\(cond (.*)\\)";
+          Pattern pattern = Pattern.compile(regex); 
+          Matcher matcher = pattern.matcher(str);
+          String conditions = "";
+          
+          while(matcher.find()){
+               conditions = matcher.group(1);
+          }
+
+          ArrayList<String> conditionsArr = Chunker.getChunks(conditions);
+
+     }
+
+     public static Map<String, String> conditionsTokenizer( ArrayList<String> conditionsArr){
+          for(String str : conditionsArr){
+               
+          }
+     }
 
 }
