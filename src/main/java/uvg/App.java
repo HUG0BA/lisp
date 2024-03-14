@@ -21,11 +21,12 @@ public class App
         }*/
 
 
-        ArrayList<String> test = Chunker.getChunks("(- 10 2) (+ 50 21) (% 4 2) (+ 1 23 234 (* 2 1 3 (- 333 34)) 23)");
+        ArrayList<String> test = Chunker.getChunks("(- 10 2) (+ 50 21) (% 4 2) (+ 1 23 234 (* 2 1 3 (- 333 34)) 23) (setq x 10)");
         for(String str : test){
             ArrayList<DataTriplet> currenArr = Extractor.extract(str);
             String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
             System.err.println(currentResult);
+            System.out.println(currentResult);
             //System.out.println(str);
         }
         
