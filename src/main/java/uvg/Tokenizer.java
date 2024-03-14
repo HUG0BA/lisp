@@ -114,9 +114,9 @@ public class Tokenizer {
           return token;
      }
 
-     public static ArrayList<String> setqTokenizer(String str) {
-          String regex = "\\(setq *([^ ]*) ([^ ]*).*\\)";
-          Pattern pattern = Pattern.compile(regex);
+     public static ArrayList<String> setqTokenizer(String str){
+          String regex = "\\( *([^ ]*) ([^ ]*).*\\)";
+          Pattern pattern = Pattern.compile(regex); 
           Matcher matcher = pattern.matcher(str);
           ArrayList<String> arrToken = new ArrayList<String>();
 
