@@ -26,6 +26,7 @@ public class App
             ArrayList<DataTriplet> currenArr = Extractor.extract(str);
             String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
             System.err.println(currentResult);
+            System.out.println(currentResult);
             //System.out.println(str);
         }
         
