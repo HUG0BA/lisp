@@ -14,7 +14,7 @@ public class ListTest {
           String input = "e a s";
           String[] expected = {"e", "a", "s"};
 
-          assertArrayEquals(expected, list.evaluateList(input));
+          assertEquals(input, list.evaluateList(expected));
 
      }
 }

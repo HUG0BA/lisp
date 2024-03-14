@@ -5,24 +5,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class List {
-    
 
-     public String[] evaluateList(String expression){
-          String regex = "\\\\\\\\(|\\\\\\\\)|[a-zA-Z0-9+*/<>=!_?-]+";
-          Pattern pattern = Pattern.compile(regex);
-          Matcher matcher = pattern.matcher(expression);
-          ArrayList<String> tokens = new ArrayList<>();
+     public String evaluateList(String[] expression) {
 
-          while(matcher.find()){
-               String token = matcher.group().trim();
-               if(!token.isEmpty()){
-                    tokens.add(token);
+          StringBuilder result = new StringBuilder();
+
+          for (int i = 0; i < expression.length; i++) {
+               result.append(expression[i]);
+               if (i < expression.length - 1) {
+                    result.append(" ");
                }
           }
-          String[] tokenArr = new String[tokens.size()];
-          tokenArr = tokens.toArray(tokenArr);
-
-          return tokenArr;
+          return result.toString();
      }
-     
+
 }
