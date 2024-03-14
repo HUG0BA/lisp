@@ -1,19 +1,13 @@
 package uvg;
 
-public class DataTriplet {
+public class DataPair {
 
-    private EExtractionType extractionType;
     private EEvaluationType keyword;
     private String command;
 
-    public DataTriplet(EExtractionType extractionType, EEvaluationType keyWord, String command){
-        this.extractionType = extractionType;
+    public DataPair(EEvaluationType keyWord, String command){
         this.keyword = keyWord;
         this.command = command;
-    }
-
-    public EExtractionType getExtractionType(){
-        return this.extractionType;
     }
 
     public EEvaluationType getKeyword(){
@@ -28,7 +22,7 @@ public class DataTriplet {
         this.command = command;
     }
 
-    public boolean equals(DataTriplet other){
+    public boolean equals(DataPair other){
         return (this.keyword.equals(other.getKeyword()) && this.command.equals(other.getCommand()));
     }
 

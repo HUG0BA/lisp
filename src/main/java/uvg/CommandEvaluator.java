@@ -6,31 +6,39 @@ import java.util.regex.Pattern;
 
 public class CommandEvaluator {
     
-    public static String evaluateAritmethic(DataTriplet dataTriplet){
-        String command = dataTriplet.getCommand();
+    public static String evaluateSum(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
         float[] arguments = Tokenizer.numberTokenizer(command);
-        switch (dataTriplet.getKeyword()) {
-            case ADDITION:
-                return ArithmeticOperations.sum(arguments);
-            
-            case SUBTRACTION:
-                return ArithmeticOperations.subtraction(arguments);
+        return ArithmeticOperations.sum(arguments);
+    }
 
-            case MULTIPICATION:
-                return ArithmeticOperations.multiplication(arguments);
+    public static String evaluateSubtraction(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.numberTokenizer(command);
+        return ArithmeticOperations.subtraction(arguments);
+    }
 
-            case DIVISION:
-                return ArithmeticOperations.division(arguments);
+    public static String evaluateMultiplication(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.numberTokenizer(command);
+        return ArithmeticOperations.multiplication(arguments);
+    }
 
-            case MODULUS:
-                return ArithmeticOperations.modolusSign(arguments);
-        
-            default:
-                return "0";
-        
-        }
+    public static String evaluateDivision(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.numberTokenizer(command);
+        return ArithmeticOperations.division(arguments);
+    }
+
+    public static String evaluateModulus(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.numberTokenizer(command);
+        return ArithmeticOperations.modolusSign(arguments);
     }
     
 
