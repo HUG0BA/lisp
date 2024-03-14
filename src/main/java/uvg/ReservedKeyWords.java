@@ -23,6 +23,7 @@ public class ReservedKeyWords {
         map.put("atom", EEvaluationType.ATOM);
         map.put("list", EEvaluationType.LIST);
         map.put("equal", EEvaluationType.EQUAL);
+        map.put("=", EEvaluationType.EQUAL);
 
         map.put("<", EEvaluationType.LESSTHAN);
         map.put(">", EEvaluationType.GREATERTHAN);
