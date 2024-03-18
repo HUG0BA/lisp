@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class ExtractorEvaluator {
     
-    public static String evaluateExtractions(ArrayList<DataPair> dataPairtArr){
+    public static String evaluateSingleExtractions(ArrayList<SimpleExtractionPair> dataPairtArr){
 
-        DataPair current = dataPairtArr.get(0);
+        SimpleExtractionPair current = dataPairtArr.get(0);
         String currentResult = evaluateSingleExtraction(current);
 
         for(int i = 1; i < dataPairtArr.size();i++){
@@ -20,7 +20,7 @@ public class ExtractorEvaluator {
 
     }
 
-    private static String evaluateSingleExtraction(DataPair dataPair){
+    private static String evaluateSingleExtraction(SimpleExtractionPair dataPair){
         switch(dataPair.getKeyword()){
             case ADDITION:
                 return CommandEvaluator.evaluateSum(dataPair.getCommand());
@@ -36,7 +36,7 @@ public class ExtractorEvaluator {
 
             case MODULUS:
                 return CommandEvaluator.evaluateModulus(dataPair.getCommand());
-                
+
             case SETQ: 
                 return CommandEvaluator.evaluateSetq(dataPair.getCommand());
             default:

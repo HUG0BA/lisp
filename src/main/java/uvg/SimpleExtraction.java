@@ -1,6 +1,6 @@
 package uvg;
 
-public enum EEvaluationType {
+public enum SimpleExtraction {
     ADDITION,
     SUBTRACTION, 
     MULTIPICATION,
