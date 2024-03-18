@@ -40,6 +40,7 @@ public class CommandEvaluator {
         float[] arguments = Tokenizer.numberTokenizer(command);
         return ArithmeticOperations.modolusSign(arguments);
     }
+    
 
     public static String evaluateSetq(String command){
         //command = checkForVariables(command);
@@ -90,4 +91,5 @@ public class CommandEvaluator {
 
         return command;
     }
+
 }

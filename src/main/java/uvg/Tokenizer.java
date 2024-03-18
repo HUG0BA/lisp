@@ -114,9 +114,9 @@ public class Tokenizer {
           return token;
      }
 
-     public static ArrayList<String> setqTokenizer(String str){
+     public static ArrayList<String> setqTokenizer(String str) {
           String regex = "\\( *([^ ]*) ([^ ]*).*\\)";
-          Pattern pattern = Pattern.compile(regex); 
+          Pattern pattern = Pattern.compile(regex);
           Matcher matcher = pattern.matcher(str);
           ArrayList<String> arrToken = new ArrayList<String>();
 
@@ -158,21 +158,6 @@ public class Tokenizer {
           for (String str : conditionsArr) {
 
           }
-     }
-
-     public static String veryfyExpressionTokenizer(String str) {
-          String regex = "<\\s*(\\d+)\\s*(\\d+)";
-          Pattern pattern = Pattern.compile(regex);
-          Matcher matcher = pattern.matcher(str);
-          StringBuilder numbers = new StringBuilder();
-
-          while (matcher.find()) {
-               String number1 = matcher.group(1);
-               String number2 = matcher.group(2);
-               numbers.append(number1).append(" ").append(number2);
-
-          }
-          return numbers.toString().trim();
      }
 
 }
