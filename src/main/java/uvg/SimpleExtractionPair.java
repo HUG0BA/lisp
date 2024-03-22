@@ -1,16 +1,16 @@
 package uvg;
 
-public class DataPair {
+public class SimpleExtractionPair {
 
-    private EEvaluationType keyword;
+    private SimpleExtraction keyword;
     private String command;
 
-    public DataPair(EEvaluationType keyWord, String command){
+    public SimpleExtractionPair(SimpleExtraction keyWord, String command){
         this.keyword = keyWord;
         this.command = command;
     }
 
-    public EEvaluationType getKeyword(){
+    public SimpleExtraction getKeyword(){
         return this.keyword;
     }
 
@@ -22,7 +22,7 @@ public class DataPair {
         this.command = command;
     }
 
-    public boolean equals(DataPair other){
+    public boolean equals(SimpleExtractionPair other){
         return (this.keyword.equals(other.getKeyword()) && this.command.equals(other.getCommand()));
     }
 
