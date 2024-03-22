@@ -3,6 +3,7 @@ package uvg;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,14 +33,14 @@ public class App
         }*/
 
 
-        ArrayList<String> test = Chunker.getChunks("(% 4 2) (+ 1 23 234 (* 2 1 3 (- 333 34)) 23) (setq x 10) (- x 10) (setq y 10 z 20 u 28) (- x y z u) (setq x \'x) (setq x u)");
-        for(String str : test){
-            ArrayList<DataPair> currenArr = Extractor.extract(str);
-            String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
-            System.err.println(currentResult);
-            System.out.println(currentResult);
-            //System.out.println(str);
-        }
+        // ArrayList<String> test = Chunker.getChunks("(% 4 2) (+ 1 23 234 (* 2 1 3 (- 333 34)) 23) (setq x 10) (- x 10) (setq y 10 z 20 u 28) (- x y z u) (setq x \'x) (setq x u)");
+        // for(String str : test){
+        //     ArrayList<DataPair> currenArr = Extractor.extract(str);
+        //     String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
+        //     System.err.println(currentResult);
+        //     System.out.println(currentResult);
+        //     //System.out.println(str);
+        // }
         
         /*String str = "(+ 1 23 234(* 3232 32 3 (- 333 34)) 23)";
         Tokenizer tokenizer = new Tokenizer();
@@ -57,18 +58,16 @@ public class App
         Tokenizer.quoteFunctionTokenizer("(quote x)");
         Tokenizer.quoteSignTokenizer("'x");
     */
-        System.out.println(Tokenizer.setqTokenizer("(setq x 10 y 10)"));
+        // System.out.println(Tokenizer.setqTokenizer("(setq x 10 y 10)"));
 
-
-        ArrayList<String> test2 = Chunker.getChunks("(< 100 400)");
-        
-        ArrayList<DataTriplet> currenArr = Extractor.extract(test2);
-        System.err.println(currenArr);
-        String currentResult = ExtractorEvaluator.evaluate(currenArr);
-        System.err.println(currentResult);
-        System.out.println(currentResult);
-        //System.out.println(str);
-        
+        ArrayList<String> test2 = Chunker.getChunks("(< 10 400)");
+        for(String str : test2){
+            ArrayList<DataPair> currenArr = Extractor.extract(str);
+            System.err.println(currenArr);
+            String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
+            System.err.println(currentResult);
+            //System.out.println(str);
+        }
         System.out.println(test2);
     }
 }

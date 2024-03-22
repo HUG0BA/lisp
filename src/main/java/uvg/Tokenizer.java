@@ -160,4 +160,28 @@ public class Tokenizer {
           }
      }
 
+     public static float[] verifyExpressionTokenizer(String str) {
+          String regex = "(\\d+\\.?\\d*) (\\d+\\.?\\d*)";
+          Pattern pattern = Pattern.compile(regex);
+          Matcher matcher = pattern.matcher(str);
+          int count = 1;
+
+          while (matcher.find()) {
+               count++;
+          }
+
+          float[] tokenslist = new float[count];
+          matcher.reset();
+
+          while (matcher.find()) {
+               float n1 = Float.parseFloat(matcher.group(1));
+               float n2 = Float.parseFloat(matcher.group(2));
+
+               tokenslist[0] = n1;
+               tokenslist[1] = n2;
+          }
+
+          return tokenslist;
+     }
+
 }

@@ -1,33 +1,33 @@
-package uvg;
+// package uvg;
 
-public class Functions {
-     
-    private Map<String, String> variables;
+// public class Functions {
 
-    private static Variables instance;
+//     private Map<String, String> variables;
 
-    private Variables(){
-        variables = new HashMap<String, String>();
-    }
+//     private static Variables instance;
 
-    public synchronized static Variables getInstance(){
-        if(instance == null){
-            instance = new Variables();
-        }
-        return instance;
-    }
+//     private Variables(){
+//         variables = new HashMap<String, String>();
+//     }
 
-    public void setqOperation(String key, String value){
-        variables.put(key, value);
-    }
+//     public synchronized static Variables getInstance(){
+//         if(instance == null){
+//             instance = new Variables();
+//         }
+//         return instance;
+//     }
 
-    public boolean checkVariableExists(String key){
-        return variables.containsKey(key);
-    }
+//     public void setqOperation(String key, String value){
+//         variables.put(key, value);
+//     }
 
-    public String getVariable(String key){
-        return variables.get(key);
-    }
+//     public boolean checkVariableExists(String key){
+//         return variables.containsKey(key);
+//     }
 
-}
-}
+//     public String getVariable(String key){
+//         return variables.get(key);
+//     }
+
+// }
+// }

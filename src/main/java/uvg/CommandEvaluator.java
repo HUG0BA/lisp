@@ -92,4 +92,34 @@ public class CommandEvaluator {
         return command;
     }
 
+    public static String evaluateGreaterExpression(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.verifyExpressionTokenizer(command);
+        return VerifyExpresion.greaterThan(arguments);
+    }
+   
+    public static String evaluateLessExpression(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.verifyExpressionTokenizer(command);
+        return VerifyExpresion.lessThan(arguments);
+    }
+   
+    public static String evaluateEqualsToExpression(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.verifyExpressionTokenizer(command);
+        return VerifyExpresion.equalsTo(arguments);
+   }
+
+    public static String evaluateList(String command){
+        command = checkForVariables(command);
+        command = checkForQuotes(command);
+        float[] arguments = Tokenizer.verifyExpressionTokenizer(command);
+        return VerifyExpresion.equalsTo(arguments);
+    }
+
+
+
 }
