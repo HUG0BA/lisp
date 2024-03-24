@@ -13,16 +13,24 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException, IOException
     {
-        // Scanner scanner = new Scanner(System.in);
-        // String input = "";
-        // while(!input.equals("salir")){
-        //     System.out.println("> ");
-        //     input = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while(!input.equals("salir")){
+            System.out.print("> ");
+            input = scanner.nextLine();
 
-        //     ArrayList<String> test = Chunker.getChunks(input);
+            ArrayList<String> test2 = Chunker.getChunks(input);
+            for(String str : test2){
+                ArrayList<SimpleExtractionPair> currenArr = Extractor.getSimpleExtraction(str);
+                System.err.println(currenArr);
+                String currentResult = ExtractorEvaluator.evaluateSingleExtractions(currenArr);
+                System.err.println(currentResult);
+                //System.out.println(str);
+            }
+            System.out.println(test2);
 
             
-        // }
+        }
         
         /*FileManager fileManger = new FileManager();
         ArrayList<String> test = fileManger.readTXTFile("example.txt");
@@ -57,14 +65,14 @@ public class App
     */
         // System.out.println(Tokenizer.setqTokenizer("(setq x 10 y 10)"));
 
-        ArrayList<String> test2 = Chunker.getChunks("(< 10 400)");
-        for(String str : test2){
-            ArrayList<DataPair> currenArr = Extractor.extract(str);
-            System.err.println(currenArr);
-            String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
-            System.err.println(currentResult);
-            //System.out.println(str);
-        }
-        System.out.println(test2);
+        // ArrayList<String> test2 = Chunker.getChunks("(> 500 600)");
+        // for(String str : test2){
+        //     ArrayList<SimpleExtractionPair> currenArr = Extractor.getSimpleExtraction(str);
+        //     System.err.println(currenArr);
+        //     String currentResult = ExtractorEvaluator.evaluateSingleExtractions(currenArr);
+        //     System.err.println(currentResult);
+        //     //System.out.println(str);
+        // }
+        // System.out.println(test2);
     }
 }
