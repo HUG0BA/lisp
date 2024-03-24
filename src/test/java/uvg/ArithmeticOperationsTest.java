@@ -8,6 +8,9 @@ import org.junit.Test;
 
 public class ArithmeticOperationsTest {
     
+    /**
+     * Test case for the sum method of the ArithmeticOperations class
+     */
     @Test
     public void sumTest(){
         ArithmeticOperations arithmethic = new ArithmeticOperations();
@@ -23,6 +26,9 @@ public class ArithmeticOperationsTest {
         
     }
 
+    /**
+     * Test case for the subtraction method of the ArithmeticOperations class.
+     */
     @Test
     public void substractionTest(){
         
@@ -47,6 +53,9 @@ public class ArithmeticOperationsTest {
         assertEquals(0, arithmethic.substraction(test6), 0.0f);
     }
 
+    /**
+     * Test case for the multiplication method of the ArithmeticOperations class.
+     */
     @Test
     public void multiplicationTest(){
         ArithmeticOperations arithmethic = new ArithmeticOperations();
@@ -61,6 +70,9 @@ public class ArithmeticOperationsTest {
         assertEquals(22025500, arithmethic.multiplication(test3), 0.0f);
     }
 
+    /**
+     * Test case for the division method of the ArithmeticOperations class.
+     */
     @Test
     public void divisionTest(){
         ArithmeticOperations arithmethic = new ArithmeticOperations();

@@ -2,7 +2,12 @@ package uvg;
 import java.util.ArrayList;
 
 public class Quote {
-     
+    
+    /**
+     * @param expression
+     * @return 
+     * @description evaluates a quote expression and adds the proper Quote expression syntax
+     */
     public String evaluateQoute(String expression){
         int count = 0;
         for(int i = 0; i < expression.length(); i++){

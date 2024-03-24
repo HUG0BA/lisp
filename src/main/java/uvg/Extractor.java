@@ -10,6 +10,11 @@ import javax.xml.crypto.Data;
 
 public class Extractor {
 
+    /**
+     * @param str
+     * @return 
+     * @description make a simple extraction pairs from the input string
+     */
     public static ArrayList<SimpleExtractionPair> getSimpleExtraction(String str){
         String regex = "\\((\\+|-|\\*|\\/|%|setq|quote|\\'|atom|list|equal|=|<|>|defun) ?([^\\(\\)]*)\\)";
         Pattern pattern = Pattern.compile(regex); 
@@ -33,11 +38,14 @@ public class Extractor {
           }
 
           return order;
-
-
     }
 
-    private static ArrayList<String> getCompoundExtractionGroups(String str){
+    /**
+     * @param str
+     * @return 
+     * @description make a compound extraction in groups from the input string
+     */
+    public static ArrayList<String> getCompoundExtractionGroups(String str){
         String regex = "\\((?:cond|if) (.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(str);
@@ -50,21 +58,26 @@ public class Extractor {
         return groups;
     }
 
-    private static CompoundExtraction getCompoundExtractionType(String str){
+    /**
+     */
+    public static CompoundExtraction getCompoundExtractionType(String str){
         String regex = "\\((cond|if) (?:.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(str);
-
         while(matcher.find()){
             return CompoundExtractionMap.getInstance().getKeyword(matcher.group(1));
         }
 
         return null;
-        
     }
 
-    private static Map<String, String[]> getCompoundExtractionPairs(ArrayList<String> groupsArr){
-        String regex = "\\( *(\\(?[^ ]\\)?|\\(?[^\\(\\)]*\\)?){1} (.*)\\)";
+    /**
+     * @param str
+     * @return 
+     * @description make a compound extraction pairs from the input groups
+     */
+    public static Map<String, String[]> getCompoundExtractionPairs(ArrayList<String> groupsArr){
+        String regex = "\\( *(\\(?[^\\(\\)]*\\)?) (.*)\\)";
         Pattern pattern = Pattern.compile(regex);
         Map<String, String[]> pairs = new HashMap<String, String[]>();
         int count = -1;

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class ExtractorEvaluator {
     
+    /**
+     * @param dataPairArrx  
+     * @return 
+     * @description method evaluates a sequance of single extraction represented by a evaluateSingleExtractions object
+     */
     public static String evaluateSingleExtractions(ArrayList<SimpleExtractionPair> dataPairtArr){
 
         SimpleExtractionPair current = dataPairtArr.get(0);
@@ -20,6 +25,11 @@ public class ExtractorEvaluator {
 
     }
 
+    /**
+     * @param dataPair
+     * @return 
+     * @description method evaluates a single extraction represented by a SimpleExtractionPair object
+     */
     private static String evaluateSingleExtraction(SimpleExtractionPair dataPair){
         switch(dataPair.getKeyword()){
             case ADDITION:

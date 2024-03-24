@@ -6,6 +6,11 @@ import java.util.regex.Pattern;
 
 public class List {
 
+     /**
+     * @param expression
+     * @return 
+     * @description evaluates and formats a string into a single string expression 
+     */
      public String evaluateList(String[] expression) {
 
           StringBuilder result = new StringBuilder();

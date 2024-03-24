@@ -9,10 +9,6 @@ import java.util.Scanner;
 
 import javax.xml.stream.FactoryConfigurationError;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args ) throws FileNotFoundException, IOException
@@ -22,6 +18,9 @@ public class App
         // while(!input.equals("salir")){
         //     System.out.println("> ");
         //     input = scanner.nextLine();
+
+        //     ArrayList<String> test = Chunker.getChunks(input);
+
             
         // }
         
@@ -32,8 +31,6 @@ public class App
             System.out.println(str);
         }*/
 
-
-        // ArrayList<String> test = Chunker.getChunks("(% 4 2) (+ 1 23 234 (* 2 1 3 (- 333 34)) 23) (setq x 10) (- x 10) (setq y 10 z 20 u 28) (- x y z u) (setq x \'x) (setq x u)");
         // for(String str : test){
         //     ArrayList<DataPair> currenArr = Extractor.extract(str);
         //     String currentResult = ExtractorEvaluator.evaluateExtractions(currenArr);
