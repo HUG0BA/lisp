@@ -39,6 +39,25 @@ public class ExtractorEvaluator {
 
             case SETQ: 
                 return CommandEvaluator.evaluateSetq(dataPair.getCommand());
+
+            case LESSTHAN: 
+                return CommandEvaluator.evaluateLessExpression(dataPair.getCommand());
+
+            case GREATERTHAN: 
+                return CommandEvaluator.evaluateGreaterExpression(dataPair.getCommand());
+            
+            case EQUAL: 
+                return CommandEvaluator.evaluateEqualsToExpression(dataPair.getCommand());
+
+            case ATOM: 
+                return CommandEvaluator.evaluateEqualsToExpression(dataPair.getCommand());
+
+            case LIST: 
+                return CommandEvaluator.evaluateList(dataPair.getCommand());
+
+
+
+
             default:
                 return "";
         }
