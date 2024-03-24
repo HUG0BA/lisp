@@ -9,23 +9,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FileManager {
-    public ArrayList<String> readTXTFile(String fileName) throws FileNotFoundException, IOException{
+    public String readTXTFile(String fileName) throws FileNotFoundException, IOException{
+
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/"+fileName)));
 
         String line;
-        ArrayList<String> arrayList = new ArrayList<String>();
+        String result = "";
 
         while (( line = reader.readLine()) != null){
-            arrayList.add(line);
+            result = result + line;
         } 
 
         reader.close();
-        return arrayList;
+        return result;
         
     }
 
-    public void writeTXTFile(ArrayList<Integer> arrayList, String fileName, boolean isTest) throws IOException{
+    public void writeTXTFile(ArrayList<String> arrayList, String fileName, boolean isTest) throws IOException{
         String s = System.getProperty("java.class.path");
         String[] arr = s.split("target");
         String filePath;
@@ -36,8 +37,7 @@ public class FileManager {
         }
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
 
-        for(Integer line : arrayList){
-            String hi = line.toString();
+        for(String line : arrayList){
             writer.write(line.toString()+"\n");
         }
 

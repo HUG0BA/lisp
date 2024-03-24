@@ -37,7 +37,7 @@ public class Extractor {
 
     }
 
-    public static ArrayList<String> getCompoundExtractionGroups(String str){
+    private static ArrayList<String> getCompoundExtractionGroups(String str){
         String regex = "\\((?:cond|if) (.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(str);
@@ -50,7 +50,7 @@ public class Extractor {
         return groups;
     }
 
-    public static CompoundExtraction getCompoundExtractionType(String str){
+    private static CompoundExtraction getCompoundExtractionType(String str){
         String regex = "\\((cond|if) (?:.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(str);
@@ -62,8 +62,9 @@ public class Extractor {
         return null;
         
     }
-    public static Map<String, String[]> getCompoundExtractionPairs(ArrayList<String> groupsArr){
-        String regex = "\\( *(\\(?[^\\(\\)]*\\)?) (.*)\\)";
+
+    private static Map<String, String[]> getCompoundExtractionPairs(ArrayList<String> groupsArr){
+        String regex = "\\( *(\\(?[^ ]\\)?|\\(?[^\\(\\)]*\\)?){1} (.*)\\)";
         Pattern pattern = Pattern.compile(regex);
         Map<String, String[]> pairs = new HashMap<String, String[]>();
         int count = -1;
@@ -81,7 +82,6 @@ public class Extractor {
             count = -1;
 
             while(matcher.find() && count < consequents.length){
-
                 if(count == -1){
                     key = matcher.group(1);
                     group = group.replace(current, "");
@@ -94,19 +94,18 @@ public class Extractor {
                     matcher.reset(group);
                     count++;
                 }
-
             }
-
             pairs.put(key, consequents);
-
         }
-
         return pairs;
 
     }
 
-    public static condExtraction(){
-
+    public CompoundExtractionPair getCompoundExtractionPair(String str){
+        CompoundExtraction type = getCompoundExtractionType(str);
+        ArrayList<String> groups = getCompoundExtractionGroups(str);
+        Map<String, String[]> map = getCompoundExtractionPairs(groups);
+        return new CompoundExtractionPair(type, map);
     }
 
     
