@@ -10,6 +10,11 @@ import javax.xml.crypto.Data;
 
 public class Extractor {
 
+    /**
+     * @param str
+     * @return 
+     * @description make a simple extraction pairs from the input string
+     */
     public static ArrayList<SimpleExtractionPair> getSimpleExtraction(String str){
         String regex = "\\((\\+|-|\\*|\\/|%|setq|quote|\\'|atom|list|equal|=|<|>|defun) ?([^\\(\\)]*)\\)";
         Pattern pattern = Pattern.compile(regex); 
@@ -33,10 +38,13 @@ public class Extractor {
           }
 
           return order;
-
-
     }
 
+    /**
+     * @param str
+     * @return 
+     * @description make a compound extraction in groups from the input string
+     */
     public static ArrayList<String> getCompoundExtractionGroups(String str){
         String regex = "\\((?:cond|if) (.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
@@ -50,6 +58,11 @@ public class Extractor {
         return groups;
     }
 
+    /**
+     * @param str
+     * @return 
+     * @description make a compound extraction type from the input string.
+     */
     public static CompoundExtraction getCompoundExtractionType(String str){
         String regex = "\\((cond|if) (?:.*)\\)";
         Pattern pattern = Pattern.compile(regex); 
@@ -60,8 +73,13 @@ public class Extractor {
         }
 
         return null;
-        
     }
+
+    /**
+     * @param str
+     * @return 
+     * @description make a compound extraction pairs from the input groups
+     */
     public static Map<String, String[]> getCompoundExtractionPairs(ArrayList<String> groupsArr){
         String regex = "\\( *(\\(?[^\\(\\)]*\\)?) (.*)\\)";
         Pattern pattern = Pattern.compile(regex);

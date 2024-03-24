@@ -6,6 +6,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class ListTest {
+     /**
+     * Tests the evaluateList method of the List class.
+     */
      @SuppressWarnings("deprecation")
      @Test
      public void evaluateListTest(){

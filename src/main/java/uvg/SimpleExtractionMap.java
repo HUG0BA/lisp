@@ -7,6 +7,9 @@ public class SimpleExtractionMap {
     private static SimpleExtractionMap instance;
     private Map<String, SimpleExtraction> map;
 
+    /**
+     * @description private contructor that initialize the map with mapping string representation
+     */
     private SimpleExtractionMap(){
         map = new HashMap<>();
         map.put("+", SimpleExtraction.ADDITION);
@@ -34,6 +37,10 @@ public class SimpleExtractionMap {
 
     }
 
+    /**
+     * @return
+     * @description retrives the singleton instance of SimpleExtractionMap class
+     */
     public synchronized static SimpleExtractionMap getInstance(){
         if(instance == null){
             instance = new SimpleExtractionMap();
@@ -41,6 +48,11 @@ public class SimpleExtractionMap {
         return instance;
     }
 
+    /**
+     * @param key
+     * @return
+     * @description retrives the enum constant with specified string representation. 
+     */
     public SimpleExtraction getKeyword(String key){
         return map.get(key);
     }

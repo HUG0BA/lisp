@@ -13,6 +13,11 @@ import java.util.Stack;
 
 public class Tokenizer {
 
+     /**
+     * @param str 
+     * @return
+     * @description method tokenizes a given string into a list of tokens
+     */
      public List<String> tokenizer(String str) {
           List<String> tokens = new ArrayList<>();
           String regex = "\\\\(|\\\\)|[a-zA-Z0-9+*/<>=!_?-]+";
@@ -25,6 +30,11 @@ public class Tokenizer {
           return tokens;
      }
 
+     /**
+     * @param str 
+     * @return
+     * @description method that stracts a token along with its symbol
+     */
      public static SimpleEntry<String, float[]> tokenizers(String str) {
           String regex = "\\\\(|\\\\)|[a-zA-Z0-9+*/<>=!_?-]+";
           Pattern pattern = Pattern.compile(regex);
@@ -59,6 +69,7 @@ public class Tokenizer {
      /**
       * @param str
       * @return
+      * @description tokenize a given string and stracts the numerical tokens
       */
      public static float[] numberTokenizer(String str) {
           String regex = "(\\d*\\.?\\d+)";
@@ -83,10 +94,20 @@ public class Tokenizer {
           return tokenslist;
      }
 
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string that contains booleans expressions
+      */
      public static boolean[] booleanTokenizer() {
           return null;
      }
 
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string containing Quote expressions using (quote...) function syntax
+      */
      public static String quoteFunctionTokenizer(String str) {
           String regex = "\\(quote (.+)\\)";
           Pattern pattern = Pattern.compile(regex);
@@ -100,6 +121,11 @@ public class Tokenizer {
           return token;
      }
 
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string containing quoted expressions using ' (quote) syntax
+      */
      public static String quoteSignTokenizer(String str) {
           String regex = "\'(.+)";
           Pattern pattern = Pattern.compile(regex);
@@ -114,6 +140,11 @@ public class Tokenizer {
           return token;
      }
 
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string contaninig (setq ...) expressions to extract variables assigments
+      */
      public static ArrayList<String> setqTokenizer(String str) {
           String regex = "\\( *([^ ]*) ([^ ]*).*\\)";
           Pattern pattern = Pattern.compile(regex);
@@ -139,7 +170,11 @@ public class Tokenizer {
           return arrToken;
      }
 
-     /* 0 */
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string containing (cond ...) expressions to extract conditional statements
+      */
      public static Map<String, String> condTokenizer(String str) {
           String regex = "\\(cond (.*)\\)";
           Pattern pattern = Pattern.compile(regex);
@@ -154,12 +189,22 @@ public class Tokenizer {
 
      }
 
+     /**
+      * @param conditionsArr
+      * @return
+      * @description tokenize a given ArrayList contaninig conditions extracted from a (cond ...) expression
+      */
      public static Map<String, String> conditionsTokenizer(ArrayList<String> conditionsArr) {
           for (String str : conditionsArr) {
 
           }
      }
 
+     /**
+      * @param str
+      * @return
+      * @description tokenize a given string contaning mathematical expressions to verify their vality. It return a float array of sixe 2
+      */
      public static float[] verifyExpressionTokenizer(String str) {
           String regex = "(\\d+\\.?\\d*) (\\d+\\.?\\d*)";
           Pattern pattern = Pattern.compile(regex);

@@ -5,7 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class VerifyExpresionTest {
-     @Test
+    /**
+     * Tests the higherThan method of the VerifyExpresion class.
+     */
+    @Test
     public void higherThanTest(){
         VerifyExpresion verify = new VerifyExpresion();
 
@@ -20,6 +23,9 @@ public class VerifyExpresionTest {
         
     }
 
+    /**
+     * Tests the lowerThan method of the VerifyExpresion class.
+     */
     @Test
     public void lowerThanTest(){
      VerifyExpresion verify = new VerifyExpresion();
@@ -35,6 +41,9 @@ public class VerifyExpresionTest {
         
     }
 
+    /**
+     * Tests the equalsTo method of the VerifyExpresion class.
+     */
     @Test
     public void equalsTest(){
           VerifyExpresion verify = new VerifyExpresion();

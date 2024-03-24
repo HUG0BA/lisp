@@ -6,6 +6,11 @@ import java.util.regex.Pattern;
 
 public class CommandEvaluator {
     
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a number given in a string format, it stracts the numbers from the string and make ethe aritmetic operation
+     * */
     public static String evaluateSum(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -13,6 +18,11 @@ public class CommandEvaluator {
         return ArithmeticOperations.sum(arguments);
     }
 
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a number given in a string format, it stracts the numbers from the string and make ethe aritmetic operation
+     * */
     public static String evaluateSubtraction(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -20,6 +30,11 @@ public class CommandEvaluator {
         return ArithmeticOperations.subtraction(arguments);
     }
 
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a number given in a string format, it stracts the numbers from the string and make ethe aritmetic operation
+     * */
     public static String evaluateMultiplication(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -27,6 +42,11 @@ public class CommandEvaluator {
         return ArithmeticOperations.multiplication(arguments);
     }
 
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a number given in a string format, it stracts the numbers from the string and make ethe aritmetic operation
+     * */
     public static String evaluateDivision(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -34,6 +54,11 @@ public class CommandEvaluator {
         return ArithmeticOperations.division(arguments);
     }
 
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a number given in a string format, it stracts the numbers from the string and make ethe aritmetic operation
+     * */
     public static String evaluateModulus(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -41,7 +66,11 @@ public class CommandEvaluator {
         return ArithmeticOperations.modolusSign(arguments);
     }
     
-
+    /**
+     * @param command 
+     * @return
+     * @decription this method evaluate a string format, it stracts the tokens in pairs to asing the proper value
+     * */
     public static String evaluateSetq(String command){
         //command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -59,6 +88,11 @@ public class CommandEvaluator {
 
     }
 
+    /**
+    * @param command
+    * @return 
+    * @description method search for a provided variable and replace it to a corresponding value
+    */
     public static String checkForVariables(String command){
         String regex = "(?<!\\')(\\d*[a-zA-Z]+[^ \\(\\)\\.\\']*\\d*)";
         Pattern pattern = Pattern.compile(regex);
@@ -77,6 +111,11 @@ public class CommandEvaluator {
         return command;
     }
 
+    /**
+    * @param command
+    * @return 
+    * @description method process a string to remove single quotes from around words specifically within parenthesis
+    */
     public static String checkForQuotes(String command){
         String regex = "\\(.*(\\'([^ ]+)).*\\)";
         Pattern pattern = Pattern.compile(regex);
@@ -92,6 +131,11 @@ public class CommandEvaluator {
         return command;
     }
 
+    /**
+    * @param command
+    * @return 
+    * @description method determins if the first number is greater than the second one given in a string 
+    */
     public static String evaluateGreaterExpression(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -99,6 +143,11 @@ public class CommandEvaluator {
         return VerifyExpresion.greaterThan(arguments);
     }
    
+    /**
+    * @param command
+    * @return 
+    * @description method determins if the first number is lower than the second one given in a string 
+    */
     public static String evaluateLessExpression(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -106,6 +155,11 @@ public class CommandEvaluator {
         return VerifyExpresion.lessThan(arguments);
     }
    
+    /**
+    * @param command
+    * @return 
+    * @description method determins if the first number is equals than the second one given in a string 
+    */
     public static String evaluateEqualsToExpression(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
@@ -113,6 +167,11 @@ public class CommandEvaluator {
         return VerifyExpresion.equalsTo(arguments);
    }
 
+   /**
+    * @param command
+    * @return 
+    * @description method determins if the first number is greater than the second one given in a string 
+    */
     public static String evaluateList(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
