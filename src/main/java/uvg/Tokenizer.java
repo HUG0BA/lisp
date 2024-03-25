@@ -175,7 +175,7 @@ public class Tokenizer {
       * @return
       * @description tokenize a given string containing (cond ...) expressions to extract conditional statements
       */
-     public static Map<String, String> condTokenizer(String str) {
+     /*public static Map<String, String> condTokenizer(String str) {
           String regex = "\\(cond (.*)\\)";
           Pattern pattern = Pattern.compile(regex);
           Matcher matcher = pattern.matcher(str);
@@ -187,18 +187,18 @@ public class Tokenizer {
 
           ArrayList<String> conditionsArr = Chunker.getChunks(conditions);
 
-     }
+     }*/
 
      /**
       * @param conditionsArr
       * @return
       * @description tokenize a given ArrayList contaninig conditions extracted from a (cond ...) expression
       */
-     public static Map<String, String> conditionsTokenizer(ArrayList<String> conditionsArr) {
+     /*public static Map<String, String> conditionsTokenizer(ArrayList<String> conditionsArr) {
           for (String str : conditionsArr) {
 
           }
-     }
+     }*/
 
      /**
       * @param str

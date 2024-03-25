@@ -11,7 +11,7 @@ public class List {
      * @return 
      * @description evaluates and formats a string into a single string expression 
      */
-     public String evaluateList(String[] expression) {
+     public static String evaluateList(String[] expression) {
 
           StringBuilder result = new StringBuilder();
 

@@ -175,8 +175,8 @@ public class CommandEvaluator {
     public static String evaluateList(String command){
         command = checkForVariables(command);
         command = checkForQuotes(command);
-        float[] arguments = Tokenizer.verifyExpressionTokenizer(command);
-        return VerifyExpresion.equalsTo(arguments);
+        //String[] arguments = Tokenizer.verifyExpressionTokenizer(command);
+        return List.evaluateList(null);
     }
 
 
